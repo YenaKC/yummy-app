@@ -1,7 +1,11 @@
+
+
 body {
   margin: 0;
   height: 100%;
   position: relative;
+  font-family: 'Open Sans', sans-serif;
+  color: #4c4c4c;
 }
 /* html{
   height: 100%;
@@ -43,4 +47,19 @@ body {
 .footer-container {
   position: relative;
   width: 100%;
+}
+
+.individual-recipe{
+  display: flex;
+  align-items: center;
+  border: 0.1em solid #e5e5e5;
+  margin: 0.5em;
+  padding: 1em;
+  gap: 1em;
+}
+
+
+
+.image {
+  width: 30em;
 }
