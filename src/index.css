@@ -63,3 +63,11 @@ body {
 .image {
   width: 30em;
 }
+
+.low-cal-badge {
+  font-size: 0.3em;
+  background-color: rgb(115, 115, 237);
+  color: white;
+  padding: 0.5em;
+  border-radius: 5px;
+}
