@@ -22,6 +22,7 @@ export default function App() {
     })
     setCurrentRecipeList(newList);
   }
+
   return (
     <>
       <Navbar />
@@ -34,7 +35,7 @@ export default function App() {
           } />
           <Route path='/about' element={<AboutPage />} />
           <Route path='/dashboard' element={<DashboardPage />} />
-          <Route path='/recipe/:id' element={<RecipeDetailsPage />} />
+          <Route path='/recipe/:recipeId' element={<RecipeDetailsPage recipesList={currentRecipeList}/>} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </section>

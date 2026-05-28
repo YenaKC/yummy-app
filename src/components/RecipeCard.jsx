@@ -1,4 +1,6 @@
-export const RecipeCard = ({onDelete, recipe}) => {
+import { Link } from "react-router-dom"
+
+export const RecipeCard = ({ onDelete, recipe }) => {
     return (
         <div className="individual-recipe" key={recipe.id}>
             <img src={recipe.image} alt="Recipe image" className="image" />
@@ -7,6 +9,9 @@ export const RecipeCard = ({onDelete, recipe}) => {
                 <p>Calories: {recipe.calories}</p>
                 <p>Servings: {recipe.servings}</p>
                 <button className="delete-btn" onClick={() => { onDelete(recipe.id) }}>Delete</button>
+                <Link to={`/recipe/${recipe.id}`}>
+                    <button className='seedetails' >See Details</button>
+                </Link>
             </div>
         </div>
     )
