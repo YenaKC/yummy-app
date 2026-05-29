@@ -9,7 +9,7 @@ export const RecipeCard = ({ onDelete, recipe }) => {
                 <p>Calories: {recipe.calories}</p>
                 <p>Servings: {recipe.servings}</p>
                 <button className="delete-btn" onClick={() => { onDelete(recipe.id) }}>Delete</button>
-                <Link to={`/recipe/${recipe.id}`}>
+                <Link to={`/recipe/:${recipe.id}`}>
                     <button className='seedetails' >See Details</button>
                 </Link>
             </div>

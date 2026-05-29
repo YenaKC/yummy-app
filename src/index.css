@@ -71,3 +71,8 @@ body {
   padding: 0.5em;
   border-radius: 5px;
 }
+
+.nav-wrap {
+  display: flex;
+  gap: 3em;
+}

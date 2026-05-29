@@ -6,7 +6,7 @@ export const Navbar = () => {
             <div>
                 <img className="logo" src="../img/yummy-logo.png" alt="Yummy app Logo" />
             </div>
-            <nav>
+            <nav className="nav-wrap">
                 <Link to ="/">Home</Link>
                 <Link to ="/about">About</Link>
                 <Link to ="/dashboard">Dashboard</Link>

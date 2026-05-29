@@ -1,8 +1,10 @@
-export const DashboardPage = () => {
+import { NewRecipeForm } from "../components/NewRecipeForm"
+
+export const DashboardPage = ({onSubmit}) => {
 
     return(
-        <>
-            <p>dashboard</p>
-        </>
+        <div>
+            <NewRecipeForm onSubmit = {onSubmit}/>
+        </div>
     )
 }

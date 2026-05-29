@@ -15,6 +15,7 @@ import recipeData from './assets/data/recipes.json';
 
 export default function App() {
 
+
   const [currentRecipeList, setCurrentRecipeList] = useState(recipeData);
   const deleteRecipe = (id) => {
     const newList = currentRecipeList.filter((recipe) => {
@@ -22,6 +23,17 @@ export default function App() {
     })
     setCurrentRecipeList(newList);
   }
+
+  const addNewRecipe = (newRecipeObj) => {
+    const uuid = self.crypto.randomUUID()
+    const newObj = {
+      id: uuid,
+      ...newRecipeObj
+    }
+    const newRecipeAddedList = [newObj, ...currentRecipeList]
+    setCurrentRecipeList(newRecipeAddedList)
+  }
+
 
   return (
     <>
@@ -31,11 +43,13 @@ export default function App() {
         <Routes>
 
           <Route path='/' element={
-            <RecipeList recipesList={currentRecipeList} onDelete={deleteRecipe}/>
+            <RecipeList recipesList={currentRecipeList} onDelete={deleteRecipe} />
           } />
           <Route path='/about' element={<AboutPage />} />
-          <Route path='/dashboard' element={<DashboardPage />} />
-          <Route path='/recipe/:recipeId' element={<RecipeDetailsPage recipesList={currentRecipeList}/>} />
+          <Route
+            path='/dashboard'
+            element={<DashboardPage onSubmit={addNewRecipe} />} />
+          <Route path='/recipe/:recipeId' element={<RecipeDetailsPage recipesList={currentRecipeList} />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </section>
