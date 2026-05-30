@@ -34,6 +34,13 @@ export default function App() {
     setCurrentRecipeList(newRecipeAddedList)
   }
 
+  const updateRecipe = (updatedRecipeObj) => {
+    const newUpdatedList = currentRecipeList.map((recipe) => {
+      return recipe.id === updatedRecipeObj.id ? updatedRecipeObj : recipe
+    })
+    setCurrentRecipeList(newUpdatedList)
+  }
+
 
   return (
     <>
@@ -51,15 +58,9 @@ export default function App() {
             element={
               <DashboardPage
                 onSubmit={addNewRecipe}
+                onUpdate={updateRecipe}
                 recipesList={currentRecipeList} />}
           />
-          {/* {<Route
-            path='/dashboard/:recipeId'
-            element={
-              <DashboardPage
-                onSubmit={addNewRecipe}
-                recipesList={currentRecipeList} />}
-          /> } */}
           <Route path='/recipe/:recipeId' element={<RecipeDetailsPage recipesList={currentRecipeList} />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>

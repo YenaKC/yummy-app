@@ -2,11 +2,19 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-export const NewRecipeForm = ({onSubmit, recipe}) => {
-    const [name, setName] = useState('');
-    const [image, setImage] = useState('');
-    const [calories, setCalories] = useState(0);
-    const [servings, setServings] = useState(0);
+export const NewRecipeForm = ({ onSubmit, recipe, onUpdate }) => {
+    
+    // I created a condition to take the value from recipe if it exists, if not leave default
+    const initialName= recipe ? recipe.name : ''
+    const initialImage = recipe ? recipe.image : ''
+    const initialCalories = recipe ? recipe.calories : 0
+    const initialServings = recipe ? recipe.servings : 0
+
+    const [name, setName] = useState(initialName);
+    const [image, setImage] = useState(initialImage);
+    const [calories, setCalories] = useState(initialCalories);
+    const [servings, setServings] = useState(initialServings);
+
 
     const navigate = useNavigate()
 
@@ -14,8 +22,8 @@ export const NewRecipeForm = ({onSubmit, recipe}) => {
         e.preventDefault()
         console.log('form submitted')
 
-
         const newRecipe = {
+            
             name: name,
             image: image,
             calories: calories,
@@ -25,6 +33,33 @@ export const NewRecipeForm = ({onSubmit, recipe}) => {
         onSubmit(newRecipe)
         navigate('/')
     }
+    
+    const handleUpdate = (e) => {
+        const updatedRecipe = {
+            id: recipe.id,
+            name: name,
+            image: image,
+            calories: calories,
+            servings: servings,
+        }
+        onUpdate(updatedRecipe)
+        navigate('/')
+    }
+
+    const handleName = (e) => {
+        setName(e.target.value);
+    }
+    
+    const handleImage = (e) => {
+        setImage(e.target.value);
+    }
+    const handleCalories = (e) => {
+        setCalories(e.target.value);
+    }
+    const handleServings = (e) => {
+        setServings(e.target.value);
+    }
+    
 
 
     return (
