@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-export const NewRecipeForm = ({onSubmit}) => {
+export const NewRecipeForm = ({onSubmit, recipe}) => {
     const [name, setName] = useState('');
     const [image, setImage] = useState('');
     const [calories, setCalories] = useState(0);

@@ -47,8 +47,19 @@ export default function App() {
           } />
           <Route path='/about' element={<AboutPage />} />
           <Route
-            path='/dashboard'
-            element={<DashboardPage onSubmit={addNewRecipe} />} />
+            path='/dashboard/:recipeId?'
+            element={
+              <DashboardPage
+                onSubmit={addNewRecipe}
+                recipesList={currentRecipeList} />}
+          />
+          {/* {<Route
+            path='/dashboard/:recipeId'
+            element={
+              <DashboardPage
+                onSubmit={addNewRecipe}
+                recipesList={currentRecipeList} />}
+          /> } */}
           <Route path='/recipe/:recipeId' element={<RecipeDetailsPage recipesList={currentRecipeList} />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
