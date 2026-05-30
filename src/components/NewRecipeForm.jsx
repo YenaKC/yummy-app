@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom'
 
 
 export const NewRecipeForm = ({ onSubmit, recipe, onUpdate }) => {
-    
+
     // I created a condition to take the value from recipe if it exists, if not leave default
-    const initialName= recipe ? recipe.name : ''
+    const initialName = recipe ? recipe.name : ''
     const initialImage = recipe ? recipe.image : ''
     const initialCalories = recipe ? recipe.calories : 0
     const initialServings = recipe ? recipe.servings : 0
@@ -23,17 +23,18 @@ export const NewRecipeForm = ({ onSubmit, recipe, onUpdate }) => {
         console.log('form submitted')
 
         const newRecipe = {
-            
+
             name: name,
             image: image,
             calories: calories,
             servings: servings,
         }
+        //need to call handleUpdate
+        recipe ? handleUpdate() : onSubmit(newRecipe) && navigate('/');
         console.log(newRecipe)
-        onSubmit(newRecipe)
         navigate('/')
     }
-    
+
     const handleUpdate = (e) => {
         const updatedRecipe = {
             id: recipe.id,
@@ -49,7 +50,7 @@ export const NewRecipeForm = ({ onSubmit, recipe, onUpdate }) => {
     const handleName = (e) => {
         setName(e.target.value);
     }
-    
+
     const handleImage = (e) => {
         setImage(e.target.value);
     }
@@ -59,7 +60,7 @@ export const NewRecipeForm = ({ onSubmit, recipe, onUpdate }) => {
     const handleServings = (e) => {
         setServings(e.target.value);
     }
-    
+
 
 
     return (
