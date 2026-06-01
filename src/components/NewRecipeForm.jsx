@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 export const NewRecipeForm = ({ onSubmit, recipe, onUpdate }) => {
 
-    // I created a condition to take the value from recipe if it exists, if not leave default
+    // I created a condition to take the value from recipe if it exists, if not leave default.  --OK
     const initialName = recipe ? recipe.name : ''
     const initialImage = recipe ? recipe.image : ''
     const initialCalories = recipe ? recipe.calories : 0
