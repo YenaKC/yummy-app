@@ -1,5 +1,7 @@
 import { NewRecipeForm } from "../components/NewRecipeForm"
 import { useParams } from 'react-router-dom'
+import '../form.css'
+
 
 export const DashboardPage = ({ onSubmit, recipesList, onUpdate }) => {
     // Objective: Adjust both AddRecipe & UpdateRecipe in NewRecipeForm component.
@@ -10,9 +12,7 @@ export const DashboardPage = ({ onSubmit, recipesList, onUpdate }) => {
         return recipe.id === recipeId;
     })
     return (
-        <div>
-            {/* I added the onUpdate props here */}
-            {/* Send the recipe to the form */}
+        <div className="form-page">
             <NewRecipeForm onSubmit={onSubmit} recipe={recipe} onUpdate={onUpdate}/>
             {/* <UpdateForm onSubmit={onSubmit} recipe={recipe} /> */}
 
