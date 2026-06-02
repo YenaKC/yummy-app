@@ -10,7 +10,10 @@ export const Navbar = () => {
                 <Link to ="/">Home</Link>
                 <Link to ="/about">About</Link>
                 <Link to ="/dashboard">Dashboard</Link>
-                <Link to ="/recipe">Recipe Details</Link>
+
+                {/* Removed Recipe Details from Navbar. */}
+                {/* Recipe Details is accessed through each recipe card because it requires a specific recipe ID(/recipe/:recipeId). */}
+                {/* <Link to ="/recipe">Recipe Details</Link> */}
             </nav>
         </div>
     )
